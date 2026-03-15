@@ -233,7 +233,7 @@
             font-size: 22px;
         }
 
-        /* Стили для модального окна-гайда */
+        
         .modal {
             display: none;
             position: fixed;
@@ -327,7 +327,7 @@
             cursor: pointer;
         }
 
-        /* ИСПРАВЛЕНО: улучшены стили для элементов избранного */
+       
         .favorite-item {
             display: flex;
             justify-content: space-between;
@@ -344,9 +344,9 @@
             text-decoration: none;
             font-weight: 500;
             flex: 1;
-            word-break: break-word;        /* перенос длинных слов */
-            overflow-wrap: break-word;      /* перенос при необходимости */
-            padding-right: 10px;            /* небольшой отступ от кнопки */
+            word-break: break-word;        
+            overflow-wrap: break-word;      
+            padding-right: 10px;            
         }
         .favorite-name:hover {
             color: #ff4757;
@@ -359,7 +359,7 @@
             cursor: pointer;
             font-size: 18px;
             padding: 5px 10px;
-            flex-shrink: 0;                 /* предотвращает сжатие кнопки */
+            flex-shrink: 0;                 
         }
         .remove-favorite:hover {
             color: #d63031;
@@ -519,7 +519,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно-гайд -->
+  
     <div id="guide-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -545,7 +545,7 @@
         </div>
     </div>
 
-    <!-- Модальное окно избранного -->
+    
     <div id="favorites-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -553,7 +553,7 @@
                 <span class="close" onclick="closeFavoritesModal()">&times;</span>
             </div>
             <div class="modal-body" id="favorites-list">
-                <!-- Список будет заполнен динамически -->
+                
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" onclick="closeFavoritesModal()">Закрыть</button>
@@ -567,7 +567,7 @@
         let additionalPlacemarks = [];
         let freeParkings = 0, mediumParkings = 0, fullParkings = 0;
 
-        // Работа с избранным
+       
         let favorites = JSON.parse(localStorage.getItem('parkingFavorites')) || [];
 
         function saveFavorites() {
@@ -607,9 +607,9 @@
             }
             let html = '';
             favorites.forEach(fav => {
-                // Ссылка на Яндекс.Карты с построением маршрута от текущего местоположения до точки
+               
                 const navLink = `https://yandex.ru/maps/?rtext=~${fav.lat},${fav.lon}`;
-                // ИСПРАВЛЕНО: добавлен title для отображения полного названия при наведении
+                
                 html += `
                     <div class="favorite-item">
                         <a href="${navLink}" target="_blank" class="favorite-name" title="${fav.name}">${fav.name}</a>
@@ -629,7 +629,7 @@
             document.getElementById('favorites-modal').style.display = 'none';
         }
 
-        // Глобальный обработчик кликов для кнопок «В избранное» внутри балуна
+       
         document.addEventListener('click', function(e) {
             const btn = e.target.closest('.add-favorite-btn');
             if (btn) {
@@ -660,7 +660,7 @@
                     return;
                 }
                 if (!apiKey) {
-                    reject(new Error('API ключ не указан. Получите ключ на https://developer.tech.yandex.ru/ и установите переменную окружения YANDEX_MAPS_API_KEY или впишите его в код.'));
+                    reject(new Error('API ключ не указан. Получите ключ на https://developer.tech.yandex.ru/.'));
                     return;
                 }
                 const script = document.createElement('script');
@@ -742,7 +742,7 @@
                             priceHtml = `<div style="margin-top: 10px; padding: 8px; border-radius: 8px; background: ${priceColor.bg}; color: ${priceColor.text}; font-weight: 500;"><i class="fas fa-ruble-sign"></i> ${parking.price}</div>`;
                         }
                         
-                        // Кнопка "В избранное"
+                       
                         const favoriteButton = `<button class="add-favorite-btn" data-id="${parking.id}" data-name="${parking.name}" data-lat="${parking.lat}" data-lon="${parking.lon}" style="margin-top: 10px; width: 100%; padding: 8px; border: none; border-radius: 8px; background: #ff4757; color: white; cursor: pointer;"><i class="fas fa-heart"></i> В избранное</button>`;
                         
                         const placemark = new ymaps.Placemark(
@@ -822,7 +822,7 @@
             document.getElementById('full-count').textContent = fullParkings;
         }
 
-        // Функции для гайда
+       
         function showGuide() {
             document.getElementById('guide-modal').style.display = 'block';
         }
