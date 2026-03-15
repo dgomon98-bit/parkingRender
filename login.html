@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация - Парковки Москвы</title>
+    <title>Вход - Парковки Москвы</title>
     <style>
         * {
             margin: 0;
@@ -125,16 +125,6 @@
             text-decoration: underline;
         }
         
-        .success-message {
-            background: rgba(0, 184, 148, 0.1);
-            color: #00b894;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            text-align: center;
-            border: 1px solid #00b894;
-        }
-        
         .error-message {
             background: rgba(255, 71, 87, 0.1);
             color: #ff4757;
@@ -152,16 +142,10 @@
         <div class="header">
             <h1>
                 <i class="fas fa-parking"></i>
-                Регистрация
+                Вход
             </h1>
         </div>
         <div class="form-container">
-            {% if success %}
-            <div class="success-message">
-                <i class="fas fa-check-circle"></i> {{ success }}
-            </div>
-            {% endif %}
-            
             {% if error %}
             <div class="error-message">
                 <i class="fas fa-exclamation-circle"></i> {{ error }}
@@ -171,18 +155,14 @@
             <form method="post">
                 <div class="form-group">
                     <label><i class="fas fa-user"></i> Логин</label>
-                    <input type="text" name="username" placeholder="Придумайте логин" required>
+                    <input type="text" name="username" placeholder="Введите логин" required>
                 </div>
                 <div class="form-group">
                     <label><i class="fas fa-lock"></i> Пароль</label>
-                    <input type="password" name="password" placeholder="Придумайте пароль" required>
-                </div>
-                <div class="form-group">
-                    <label><i class="fas fa-lock"></i> Подтверждение пароля</label>
-                    <input type="password" name="confirm_password" placeholder="Повторите пароль" required>
+                    <input type="password" name="password" placeholder="Введите пароль" required>
                 </div>
                 <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-user-plus"></i> Зарегистрироваться
+                    <i class="fas fa-sign-in-alt"></i> Войти
                 </button>
             </form>
             <div class="back-link">
