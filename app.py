@@ -24,10 +24,10 @@ def init_db():
             last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
-    # Проверка наличия данных 
+     
     cursor.execute("SELECT COUNT(*) FROM parkings")
     count = cursor.fetchone()[0]
-   if count == 0:
+    if count == 0:
         # Основные парковки 
         main_parkings = [
             ('Кремль', 55.752023, 37.617499, 8, 150, 'Красная площадь', None, 'main'),
