@@ -5,7 +5,7 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 
-YANDEX_API_KEY = os.getenv('YANDEX_API_KEY', '1a4b06f9-3473-48fe-8bd2-26417e144fe2')
+YANDEX_API_KEY = os.getenv('YANDEX_API_KEY', '8561f731-6d63-438a-9db5-3cb1d6cfb7cc')
 
 def init_db():
     conn = sqlite3.connect('parking_app.db')
